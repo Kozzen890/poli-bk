@@ -1,61 +1,91 @@
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Poliklinik - Home</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Personal Website</title>
+  <!--==================== UNICONS ====================-->
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
+  <!--==================== SWIPER CSS ====================-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.0.5/swiper-bundle.min.css">
 
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome Icons -->
-  <!-- <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css"> -->
-  <link rel="stylesheet" href="helper/AdminLTE/plugins/fontawesome-free/css/all.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="helper/AdminLTE/dist/css/adminlte.min.css">
+  <!--==================== CSS ====================-->
+  <link rel="stylesheet" href="./config/style.css" />
 </head>
 
-<body class="hold-transition sidebar-mini">
-  <div class="wrapper">
+<body>
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#" class="nav_logo">Poliklinik</a>
 
-    <?php include('./components/navbar.php') ?>
+      <!-- <div class="nav_menu" id="nav-menu">
+        <ul class="nav_list grid">
+          <li class="nav_item">
+            <a href="#about" class="nav_link"> <i class="uil uil-user nav_icon"></i> Home </a>
+          </li>
+          <li class="nav_item">
+            <a href="#projects" class="nav_link"> <i class="uil uil-server-network nav_icon"></i> Projects </a>
+          </li>
+          <li class="nav_item">
+            <a href="#messages" class="nav_link"> <i class="uil uil-message nav_icon"></i> Contact Me </a>
+          </li>
+        </ul>
+        <i class="uil uil-times nav_close" id="nav-close"></i>
+      </div> -->
 
-    <?php include('./components/sidebar.php') ?>
+    </nav>
+  </header>
 
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-      <?php
-      include("pages/obat/obat.php");
-      ?>
-    </div>
-    <!-- /.content-wrapper -->
+  <main class="main">
+    <!--==================== PROJECT IN MIND ====================-->
+    <section class="project section">
+      <div class="project_bg">
+        <div class="project_container container grid">
+          <div class="project_data">
+            <h2 class="project_title">Admin</h2>
+            <p class="project_desc">Melakukan Management pada sistem Poliklinik</p>
+          </div>
 
-
-
-    <!-- Main Footer -->
-    <footer class="main-footer">
-      <!-- To the right -->
-      <div class="float-right d-none d-sm-inline">
-        Anything you want
+          <a href="./login-admin.php" class="button button-flex button-white project_img"> Login Admin
+            <i class="uil uil-chat project_icon button_icon"></i>
+          </a>
+        </div>
       </div>
-      <!-- Default to the left -->
-      <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-    </footer>
-  </div>
-  <!-- ./wrapper -->
 
-  <!-- REQUIRED SCRIPTS -->
+      <div class="project_bg">
+        <div class="project_container container grid">
+          <div class="project_data">
+            <h2 class="project_title">Dokter</h2>
+            <p class="project_desc">Memeriksa Pasien</p>
+          </div>
 
-  <!-- jQuery -->
-  <script src="helper/AdminLTE/plugins/jquery/jquery.min.js"></script>
-  <!-- Bootstrap 4 -->
-  <script src="helper/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <!-- AdminLTE App -->
-  <script src="helper/AdminLTE/dist/js/adminlte.min.js"></script>
+          <a href="./logout-dokter.php" class="button button-flex button-white project_img"> Login Dokter
+            <i class="uil uil-chat project_icon button_icon"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!--==================== FOOTER ====================-->
+  <footer class="footer">
+    <div class="footer_bg">
+      <p class="footer_copy">&#169; 2023 Poliklinik BK, all rights reserved</p>
+    </div>
+  </footer>
+
+  <!--==================== SCROLL TOP ====================-->
+  <a href="#" class="scrollup" id="scroll-up">
+    <i class="uil uil-arrow-up scroll-up-icon"></i>
+  </a>
+
+  <!--==================== SWIPER JS ====================-->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11.0.5/swiper-bundle.min.js"></script>
+
+  <!--==================== MAIN JS ====================-->
+  <script src="./assets/js/main.js"></script>
 </body>
 
 </html>
