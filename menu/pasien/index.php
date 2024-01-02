@@ -52,7 +52,11 @@
               <a href="./daftar-pasien.php" class="btn btn-primary">Daftar Pasien</a>
             </div>
           </div>
+
         </div>
+      </div>
+      <div class="row col-sm-5 col-md-5 mt-5 mx-auto">
+        <a href="../../" class="btn btn-danger btn-block">Back To Home Page</a>
       </div>
     </section>
 
