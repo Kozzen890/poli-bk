@@ -114,6 +114,10 @@
             <label for="no_hp">Nomor HP</label>
             <input type="text" class="form-control" id="no_hp" name="no_hp" required>
           </div>
+          <div class="form-group">
+            <label for="no_rm">Nomor Rekam Medis</label>
+            <input type="text" class="form-control" id="no_rm" name="no_rm" required>
+          </div>
           <button type="submit" class="btn btn-primary">Tambah</button>
         </form>
       </div>
