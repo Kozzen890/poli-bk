@@ -12,7 +12,7 @@
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <!--==================== CSS ====================-->
-  <link rel="stylesheet" href="./config/style.css" />
+  <link rel="stylesheet" href="../../config/style.css" />
 </head>
 
 <body>
@@ -43,31 +43,13 @@
 
     <section class="project section">
       <div class="row mt-2">
-        <h2 class="font-weight-bold text-center mb-4">Selamat Datang di Poliklinik</h2>
-        <div class="col-sm-5 mx-auto">
+        <h2 class="font-weight-bold text-center mb-4">Selamat Datang di Menu Pasien</h2>
+        <div class="col-sm-5 mx-auto mt-4">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Menu Admin</h5>
-              <p class="card-text">Melakukan Management pada sistem Poliklinik</p>
-              <a href="./login-admin.php" class="btn btn-primary">Login Admin</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-5 mx-auto">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Menu Dokter</h5>
-              <p class="card-text">Memeriksa Pasien</p>
-              <a href="./login-dokter.php" class="btn btn-primary">Login Dokter</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 mx-auto mt-5">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Menu Pasien</h5>
-              <p class="card-text">Pendaftaran Pasien dan Pemeriksaan Pasien</p>
-              <a href="./menu/pasien/" class="btn btn-primary">Pendaftaran Pasien</a>
+              <h5 class="card-title">Register Pasien Baru</h5>
+              <p class="card-text">Pendaftaran Bagi Pasien yang belum memiliki nomor rekam medis</p>
+              <a href="./daftar-pasien.php" class="btn btn-primary">Daftar Pasien</a>
             </div>
           </div>
         </div>
@@ -95,7 +77,6 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@11.0.5/swiper-bundle.min.js"></script>
 
   <!--==================== MAIN JS ====================-->
-  <script src="./assets/js/main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 

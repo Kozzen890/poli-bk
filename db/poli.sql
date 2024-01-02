@@ -114,7 +114,7 @@ CREATE TABLE `dokter` (
   PRIMARY KEY (`id`),
   KEY `fk_poli` (`id_poli`),
   CONSTRAINT `fk_poli` FOREIGN KEY (`id_poli`) REFERENCES `poli` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -123,6 +123,7 @@ CREATE TABLE `dokter` (
 
 LOCK TABLES `dokter` WRITE;
 /*!40000 ALTER TABLE `dokter` DISABLE KEYS */;
+INSERT INTO `dokter` VALUES (1,'Audrey','Semarang','085672532233',1);
 /*!40000 ALTER TABLE `dokter` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -192,7 +193,7 @@ CREATE TABLE `obat` (
   `kemasan` varchar(35) NOT NULL,
   `harga` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -201,7 +202,7 @@ CREATE TABLE `obat` (
 
 LOCK TABLES `obat` WRITE;
 /*!40000 ALTER TABLE `obat` DISABLE KEYS */;
-INSERT INTO `obat` VALUES (1,'antibiotik','ktk 6 x 5 tablet',5000),(2,'paracetamol','ktk 5 x 5 tablet',10000),(3,'bordrek','ktk 6 x 6 tablet',4500),(4,'antimo','btl 150ml',20000);
+INSERT INTO `obat` VALUES (1,'antibiotik','ktk 6 x 5 tablet',5000),(2,'paracetamol','ktk 5 x 5 tablet',10000),(3,'bordrek','ktk 6 x 6 tablet',4500),(4,'antimo','btl 150ml',20000),(14,'Sanmol','Sirup',11000);
 /*!40000 ALTER TABLE `obat` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -220,7 +221,7 @@ CREATE TABLE `pasien` (
   `no_hp` varchar(50) NOT NULL,
   `no_rm` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -229,6 +230,7 @@ CREATE TABLE `pasien` (
 
 LOCK TABLES `pasien` WRITE;
 /*!40000 ALTER TABLE `pasien` DISABLE KEYS */;
+INSERT INTO `pasien` VALUES (1,'Kozzen','Banyumanik , Semarang','180302','082226352372','202401-001');
 /*!40000 ALTER TABLE `pasien` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -272,7 +274,7 @@ CREATE TABLE `poli` (
   `nama_poli` varchar(25) NOT NULL,
   `keterangan` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -281,6 +283,7 @@ CREATE TABLE `poli` (
 
 LOCK TABLES `poli` WRITE;
 /*!40000 ALTER TABLE `poli` DISABLE KEYS */;
+INSERT INTO `poli` VALUES (1,'Poli Gigi','Pemeriksaan Gigi'),(5,'Poli Mata','Pemeriksaan Mata');
 /*!40000 ALTER TABLE `poli` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -293,4 +296,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-27 14:50:50
+-- Dump completed on 2024-01-02 21:37:15

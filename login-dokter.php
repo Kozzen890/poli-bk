@@ -98,6 +98,9 @@ if (isset($_POST['login'])) {
             <div class="col-4">
               <button type="submit" name="login" class="btn btn-primary btn-block">Sign In</button>
             </div>
+            <div class="col-12 mt-3">
+              <a href="./" class="btn btn-primary btn-block">Back To Home Page</a>
+            </div>
             <!-- /.col -->
           </div>
         </form>

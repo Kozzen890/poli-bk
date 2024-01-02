@@ -209,16 +209,6 @@ img {
 }
 
 @media screen and (max-width: 767px) {
-  .nav_menu {
-    position: fixed;
-    bottom: -100%;
-    left: 0;
-    width: 100%;
-    background-color: var(--body-color);
-    padding: 2rem 1.5rem 4rem;
-    border-radius: 1.5rem 1.5rem 0 0;
-    transition: 0.3s;
-  }
 }
 
 .nav_list {
@@ -241,19 +231,6 @@ img {
 
 .nav_icon {
   font-size: 1.2 rem;
-}
-
-.nav_close {
-  position: absolute;
-  right: 1.3rem;
-  bottom: 0.5rem;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: var(--first-color);
-}
-
-.nav_close:hover {
-  color: var(--first-color-alt);
 }
 
 /* show menu */
