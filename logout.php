@@ -9,5 +9,5 @@ session_unset();
 session_destroy();
 
 // Mengarahkan pengguna ke halaman login atau halaman lain yang sesuai
-header("Location: login-admin.php");
+header("Location: ./auth/login.php");
 exit();

@@ -47,27 +47,18 @@
         <div class="col-sm-5 mx-auto">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Menu Admin</h5>
-              <p class="card-text">Melakukan Management pada sistem Poliklinik</p>
-              <a href="./login-admin.php" class="btn btn-primary">Login Admin</a>
+              <h5 class="card-title">Login Sebagai Dokter</h5>
+              <p class="card-text">Melakukan Pemeriksaan</p>
+              <a href="controllers/controller.php" class="btn btn-primary">Login Dokter</a>
             </div>
           </div>
         </div>
         <div class="col-sm-5 mx-auto">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Menu Dokter</h5>
-              <p class="card-text">Memeriksa Pasien</p>
-              <a href="./login-dokter.php" class="btn btn-primary">Login Dokter</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 mx-auto mt-5">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Menu Pasien</h5>
-              <p class="card-text">Pendaftaran Pasien dan Pemeriksaan Pasien</p>
-              <a href="./menu/pasien/" class="btn btn-primary">Pendaftaran Pasien</a>
+              <h5 class="card-title">Login Sebagai Pasien</h5>
+              <p class="card-text">Pasien Poliklinik</p>
+              <a href="controllers/controller.php" class="btn btn-primary">Login Pasien</a>
             </div>
           </div>
         </div>
