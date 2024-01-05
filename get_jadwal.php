@@ -5,14 +5,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id_poli = mysqli_real_escape_string($mysqli, $_POST['id_poli']);
 
     // Query untuk mengambil data jadwal_periksa berdasarkan id_poli
-    $queryJadwal = "SELECT a.nama as nama_dokter,
-                                    b.hari as hari,
-                                    b.id as id_jp,
-                                    b.jam_mulai as jam_mulai,
-                                    b.jam_selesai as jam_selesai
-                            FROM dokter as a 
-                            INNER JOIN jadwal_periksa as b ON a.id = b.id_dokter
-                            WHERE a.id_poli = $id_poli";
+    $queryJadwal = "SELECT jp.id, jp.hari, ' ', jp.jam_mulai, jp.jam_selesai, d.nama FROM jadwal_periksa jp
+                    INNER JOIN dokter d ON jp.id_dokter = d.id
+                    WHERE d.id_poli = $id_poli";
 
     $resultJadwal = mysqli_query($mysqli, $queryJadwal);
 
