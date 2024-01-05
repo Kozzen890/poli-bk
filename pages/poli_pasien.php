@@ -1,40 +1,40 @@
 <?php
-    include 'koneksi.php';
-    
-    if (!isset($_SESSION['user_id'])) {
-        header("Location: index.php"); 
-        exit();
-    }
+include 'koneksi.php';
 
-    $tahun_bulan = date('Ym');
-    
-    $user_id = $_SESSION['user_id'];
-    $role_id = $_SESSION['role_id'];
-    $nama = $_SESSION['nama']; // Ambil nama dari session
-    $no_rm = $_SESSION['no_rm'];
+if (!isset($_SESSION['user_id'])) {
+    header("Location: index.php");
+    exit();
+}
 
-    $query_antrian = "SELECT MAX(SUBSTRING_INDEX(no_antrian, '-', -1)) as max_antrian FROM daftar_poli WHERE SUBSTRING_INDEX(no_antrian, '-', 1) = '$tahun_bulan'";
-    $result_antrian = mysqli_query($mysqli, $query_antrian);
-    $row_antrian = mysqli_fetch_assoc($result_antrian);
-    $max_antrian = $row_antrian['max_antrian'];
+$tahun_bulan = date('Ym');
 
-    if ($max_antrian === null) {
-        $nomor_antrian = 1;
-    } else {
-        // Jika sudah ada antrian, tambahkan 1
-        $nomor_antrian = $max_antrian + 1;
-    }
-    
-    // Format antrian sesuai kebutuhan
-    $antrian = sprintf("%s-%03d", $tahun_bulan, $nomor_antrian);
+$user_id = $_SESSION['user_id'];
+$role_id = $_SESSION['role_id'];
+$nama = $_SESSION['nama']; // Ambil nama dari session
+$no_rm = $_SESSION['no_rm'];
 
-    $query = "SELECT * FROM poli";
-    $result = mysqli_query($mysqli, $query);
+$query_antrian = "SELECT MAX(SUBSTRING_INDEX(no_antrian, '-', -1)) as max_antrian FROM daftar_poli WHERE SUBSTRING_INDEX(no_antrian, '-', 1) = '$tahun_bulan'";
+$result_antrian = mysqli_query($mysqli, $query_antrian);
+$row_antrian = mysqli_fetch_assoc($result_antrian);
+$max_antrian = $row_antrian['max_antrian'];
 
-    $polis = mysqli_fetch_all($result, MYSQLI_ASSOC);
+if ($max_antrian === null) {
+    $nomor_antrian = 1;
+} else {
+    // Jika sudah ada antrian, tambahkan 1
+    $nomor_antrian = $max_antrian + 1;
+}
 
-    $id_pasien = isset($_SESSION['id_pasien']) ? $_SESSION['id_pasien'] : '';
-    $no_rm = isset($_SESSION['no_rm']) ? $_SESSION['no_rm'] : '';
+// Format antrian sesuai kebutuhan
+$antrian = sprintf("%s-%03d", $tahun_bulan, $nomor_antrian);
+
+$query = "SELECT * FROM poli";
+$result = mysqli_query($mysqli, $query);
+
+$polis = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+$id_pasien = isset($_SESSION['id_pasien']) ? $_SESSION['id_pasien'] : '';
+$no_rm = isset($_SESSION['no_rm']) ? $_SESSION['no_rm'] : '';
 ?>
 
 <!-- Content Header (Page header) -->
@@ -69,28 +69,26 @@
                     <div class="card-body">
                         <form action="pages/tambah_daftar_poli.php" method="post">
                             <div class="form-group">
-                                <input type="hidden" class="form-control" id="id_pasien" name="id_pasien"
-                                    value="<?= $id_pasien ?>" required>
+                                <input type="hidden" class="form-control" id="id_pasien" name="id_pasien" value="<?= $id_pasien ?>" required>
                             </div>
                             <div class="form-group">
                                 <label for="no_rm">Nomor Rekam Medis</label>
-                                <input type="text" class="form-control" id="no_rm" name="no_rm" value="<?= $no_rm ?>"
-                                readonly>
+                                <input type="text" class="form-control" id="no_rm" name="no_rm" value="<?= $no_rm ?>" readonly>
                             </div>
                             <div class="form-group">
                                 <label for="id_poli">Pilih Poli</label>
                                 <select class="form-control" id="id_poli" name="id_poli" required>
                                     <option value="" disabled selected>Pilih Poli</option>
                                     <?php
-                                // Ambil data poli dari tabel poli
-                                $queryPoli = "SELECT * FROM poli";
-                                $resultPoli = mysqli_query($mysqli, $queryPoli);
+                                    // Ambil data poli dari tabel poli
+                                    $queryPoli = "SELECT * FROM poli";
+                                    $resultPoli = mysqli_query($mysqli, $queryPoli);
 
-                                // Tampilkan data poli sebagai option dalam dropdown
-                                while ($poli = mysqli_fetch_assoc($resultPoli)) {
-                                    echo "<option value='{$poli["id"]}'>{$poli["nama_poli"]}</option>";
-                                }
-                                ?>
+                                    // Tampilkan data poli sebagai option dalam dropdown
+                                    while ($poli = mysqli_fetch_assoc($resultPoli)) {
+                                        echo "<option value='{$poli["id"]}'>{$poli["nama_poli"]}</option>";
+                                    }
+                                    ?>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -155,8 +153,7 @@
 
     </div>
     <!-- Modal Tambah Data Obat -->
-    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -185,10 +182,10 @@
     <!-- Tambahkan tag script untuk jQuery sebelum script Anda -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script>
-        $(document).ready(function () {
-            $('.edit-btn').on('click', function () {
+        $(document).ready(function() {
+            $('.edit-btn').on('click', function() {
                 var dataId = $(this).data('obatid');
-                $('#seg-modal').load('pages/editPoli.php?id=' + dataId, function () {
+                $('#seg-modal').load('pages/editPoli.php?id=' + dataId, function() {
                     $('#editModal').modal('show');
                 });
             });
@@ -196,9 +193,9 @@
     </script>
     <!-- script pilih jadwal -->
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             // Event listener untuk perubahan pada dropdown "Pilih Poli"
-            $('#id_poli').on('change', function () {
+            $('#id_poli').on('change', function() {
                 var selectedPoli = $(this).val();
 
                 // Kirim permintaan AJAX untuk mengambil data jadwal_periksa berdasarkan poli yang dipilih
@@ -209,15 +206,15 @@
                         id_poli: selectedPoli
                     },
                     dataType: 'json',
-                    success: function (data) {
+                    success: function(data) {
                         // Bersihkan dan tambahkan data jadwal_periksa ke dropdown "Pilih Jadwal"
                         $('#id_jadwal').empty();
-                        $.each(data, function (key, value) {
-                            $('#id_jadwal').append('<option value="' + value.id +
-                                '">' + value.hari + ' ' +  value.jam_mulai + '</option>');
+                        $.each(data, function(key, value) {
+                            $('#id_jadwal').append('<option value="' + value.id + '">' + value.hari + ' ' + value.jam_mulai + ' - ' + value.jam_selesai + '</option>');
                         });
+
                     },
-                    error: function (xhr, status, error) {
+                    error: function(xhr, status, error) {
                         console.error(xhr.responseText);
                     }
                 });
