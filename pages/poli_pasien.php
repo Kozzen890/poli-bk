@@ -210,7 +210,7 @@ $no_rm = isset($_SESSION['no_rm']) ? $_SESSION['no_rm'] : '';
                         // Bersihkan dan tambahkan data jadwal_periksa ke dropdown "Pilih Jadwal"
                         $('#id_jadwal').empty();
                         $.each(data, function(key, value) {
-                            $('#id_jadwal').append('<option value="' + value.id + '">' + value.hari + ' ' + value.jam_mulai + ' - ' + value.jam_selesai + '</option>');
+                            $('#id_jadwal').append('<option value="' + value.id + '">' + 'Dokter' + ' ' + value.nama_dokter + ' | ' + value.hari + ' ' + value.jam_mulai + ' - ' + value.jam_selesai + '</option>');
                         });
 
                     },
