@@ -101,10 +101,6 @@ $no_rm = isset($_SESSION['no_rm']) ? $_SESSION['no_rm'] : '';
                                 <label for="keluhan">Keluhan</label>
                                 <input type="text" class="form-control" id="keluhan" name="keluhan" required>
                             </div>
-                            <div class="form-group">
-                                <label for="no_antrian">Antrian</label>
-                                <input type="text" class="form-control" id="no_antrian" name="no_antrian" value="<?= $nomor_antrian ?>" readonly>
-                            </div>
 
                             <button type="submit" class="btn btn-primary">Tambah</button>
                         </form>

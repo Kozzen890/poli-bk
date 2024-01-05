@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_id = $_POST["id_pasien"];
     $id_jadwal = $_POST["id_jadwal"];
     $keluhan = $_POST["keluhan"];
-    $no_antrian = $_POST["no_antrian"];
+    $no_antrian = getQueueNumbers($id_jadwal) + 1;
 
 
 
@@ -23,6 +23,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     } else {
         echo "Error: " . $query . "<br>" . mysqli_error($mysqli);
+    }
+}
+
+function getQueueNumbers($id_jadwal)
+{
+    include '../koneksi.php';
+    $id_jadwal_sanitized = mysqli_real_escape_string($mysqli, $id_jadwal);
+    $queryQueue = "SELECT MAX(no_antrian) as max_no_antrian FROM daftar_poli WHERE id_jadwal = '$id_jadwal_sanitized'";
+    $resultQueue = mysqli_query($mysqli, $queryQueue);
+
+    if ($resultQueue) {
+        // Fetch the result row
+        $rowQueue = mysqli_fetch_assoc($resultQueue);
+
+        // Use the result
+        $latest_no_antrian = $rowQueue['max_no_antrian'] ? $rowQueue['max_no_antrian'] : 0;
+
+        // Free the result set
+        mysqli_free_result($resultQueue);
+
+        return $latest_no_antrian;
+    } else {
+        // Handle the error if the query fails
+        echo "Error: " . mysqli_error($mysqli);
+        return 0;
     }
 }
 
