@@ -44,31 +44,31 @@ $nama = $_SESSION['nama']; // Ambil nama dari session
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Menampilkan menu khusus dokter -->
         <li class="nav-item">
-          <a href="index.php?page=periksa" class="nav-link">
+          <a href="#" class="nav-link">
             <i class="nav-icon fas fa-notes-medical"></i>
             <p>Dashboard</p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="index.php?page=periksa" class="nav-link">
+          <a href="#" class="nav-link">
             <i class="nav-icon fas fa-notes-medical"></i>
             <p>Jadwal Periksa</p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="index.php?page=riwayatpasien" class="nav-link">
+          <a href="#" class="nav-link">
             <i class="nav-icon fas fa-history"></i>
             <p>Memeriksa Pasien</p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="index.php?page=riwayatpasien" class="nav-link">
+          <a href="#" class="nav-link">
             <i class="nav-icon fas fa-history"></i>
             <p>Riwayat Pasien</p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="index.php?page=riwayatpasien" class="nav-link">
+          <a href="#" class="nav-link">
             <i class="nav-icon fas fa-history"></i>
             <p>Profile</p>
           </a>
