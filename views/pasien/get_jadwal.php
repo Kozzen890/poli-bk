@@ -1,5 +1,5 @@
 <?php
-include 'koneksi.php';
+include '../../koneksi.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id_poli = mysqli_real_escape_string($mysqli, $_POST['id_poli']);

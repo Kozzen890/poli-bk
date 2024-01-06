@@ -1,8 +1,8 @@
 <?php
-include 'koneksi.php';
+include '../../koneksi.php';
 
 if (!isset($_SESSION['user_id'])) {
-    header("Location: index.php");
+    header("Location: ../../index.php");
     exit();
 }
 $nomor_antrian = 0;
@@ -42,12 +42,12 @@ $no_rm = isset($_SESSION['no_rm']) ? $_SESSION['no_rm'] : '';
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">Daftar Poli Klinik</h1>
+                <h1 class="m-0">Daftar PoliKlinik</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="dashboard.php?page=home">Home</a></li>
-                    <li class="breadcrumb-item active">Poli Klinik</li>
+                    <li class="breadcrumb-item active">PoliKlinik</li>
                 </ol>
             </div><!-- /.col -->
         </div><!-- /.row -->
@@ -67,7 +67,7 @@ $no_rm = isset($_SESSION['no_rm']) ? $_SESSION['no_rm'] : '';
                         </h3>
                     </div>
                     <div class="card-body">
-                        <form action="./pages/tambah_daftar_poli.php" method="post">
+                        <form action="../../pages/daftarPoli/tambah_daftar_poli.php" method="post">
                             <div class="form-group">
                                 <input type="hidden" class="form-control" id="id_pasien" name="id_pasien" value="<?= $id_pasien ?>" required>
                             </div>
@@ -199,7 +199,7 @@ $no_rm = isset($_SESSION['no_rm']) ? $_SESSION['no_rm'] : '';
                 </div>
                 <div class="modal-body">
                     <!-- Form tambah data obat disini -->
-                    <form action="pages/tambahPoli.php" method="post">
+                    <form action="../../pages/tambahPoli.php" method="post">
                         <div class="form-group">
                             <label for="nama_poli">Nama Poli</label>
                             <input type="text" class="form-control" id="nama_poli" name="nama_poli" required>

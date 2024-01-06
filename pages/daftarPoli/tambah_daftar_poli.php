@@ -1,5 +1,5 @@
 <?php
-include '../koneksi.php';
+include '../../koneksi.php';
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (mysqli_query($mysqli, $query)) {
         echo '<script>';
         echo 'alert("Data Daftar Poliklinik berhasil ditambahkan!");';
-        echo 'window.location.href = "../home_poli_pasien.php";';
+        echo 'window.location.href = "../../views/pasien/home_poli_pasien.php";';
         echo '</script>';
         exit();
     } else {
@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 function getQueueNumbers($id_jadwal)
 {
-    include '../koneksi.php';
+    include '../../koneksi.php';
     $id_jadwal_sanitized = mysqli_real_escape_string($mysqli, $id_jadwal);
     $queryQueue = "SELECT MAX(no_antrian) as max_no_antrian FROM daftar_poli WHERE id_jadwal = '$id_jadwal_sanitized'";
     $resultQueue = mysqli_query($mysqli, $queryQueue);
