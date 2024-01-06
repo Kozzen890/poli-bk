@@ -1,5 +1,5 @@
 <?php
-include '../koneksi.php';
+include '../../koneksi.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Ambil nilai dari form
@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Jika berhasil, redirect kembali ke halaman utama atau sesuaikan dengan kebutuhan Anda
             echo '<script>';
             echo 'alert("Data dokter berhasil ditambahkan!");';
-            echo 'window.location.href = "../home_dokter.php";';
+            echo 'window.location.href = "../../home_dokter.php";';
             echo '</script>';
             exit();
         } else {

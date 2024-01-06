@@ -58,7 +58,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="content-wrapper">
       <!-- Main content -->
       <?php
-      include('./pages/dokter.php');
+      include('./pages/dokter/dokter.php');
       ?>
       <!-- /.content -->
     </div>
