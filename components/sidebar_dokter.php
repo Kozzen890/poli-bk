@@ -14,6 +14,7 @@ $nama = $_SESSION['nama']; // Ambil nama dari session
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
   <a href="dashboard.php" class="brand-link">
+    <img src="../../config/img/logo_dinus.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
     <span class="brand-text font-weight-light">Poliklinik Udinus</span>
   </a>
 
@@ -44,19 +45,19 @@ $nama = $_SESSION['nama']; // Ambil nama dari session
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Menampilkan menu khusus dokter -->
         <li class="nav-item">
-          <a href="dashboard.php" class="nav-link">
+          <a href="../home/dashboard.php" class="nav-link">
             <i class="nav-icon fas fa-notes-medical"></i>
             <p>Dashboard</p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="home_jadwal_periksa.php" class="nav-link">
+          <a href="../dokter/home_jadwal_periksa.php" class="nav-link">
             <i class="nav-icon fas fa-notes-medical"></i>
             <p>Jadwal Periksa</p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="home_periksa.php" class="nav-link">
+          <a href="../dokter/home_periksa.php" class="nav-link">
             <i class="nav-icon fas fa-history"></i>
             <p>Memeriksa Pasien</p>
           </a>
@@ -68,7 +69,7 @@ $nama = $_SESSION['nama']; // Ambil nama dari session
           </a>
         </li>
         <li class="nav-item">
-          <a href="home_profile.php" class="nav-link">
+          <a href="../dokter/home_profile.php" class="nav-link">
             <i class="nav-icon fas fa-history"></i>
             <p>Profile</p>
           </a>
