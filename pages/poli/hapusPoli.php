@@ -6,4 +6,4 @@ $id = $_GET['id']; //menampung id
 $datas = mysqli_query($mysqli, "delete from poli where id ='$id'") or die(mysqli_error($mysqli));
 
 //alert dan redirect ke obat.php
-echo "<script>alert('data berhasil dihapus.');window.location='../../home_poli.php';</script>";
+echo "<script>alert('data berhasil dihapus.');window.location='../../views/admin/home_poli.php';</script>";

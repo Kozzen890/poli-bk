@@ -1,5 +1,5 @@
 <?php
-include 'koneksi.php';
+include '../../koneksi.php';
 
 $query = "SELECT * FROM poli";
 $result = mysqli_query($mysqli, $query);
@@ -60,7 +60,7 @@ $polis = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                     <td><?= $poli["keterangan"];  ?></td>
                                     <td>
                                         <button type='button' class='btn btn-sm btn-warning edit-btn' data-obatid='<?= $poli['id']; ?>'>Edit</button>
-                                        <a href='pages/poli/hapusPoli.php?id=<?= $poli['id']; ?>' class='btn btn-sm btn-danger' onclick='return confirm("Anda yakin ingin hapus?");'>Hapus</a>
+                                        <a href='../../pages/poli/hapusPoli.php?id=<?= $poli['id']; ?>' class='btn btn-sm btn-danger' onclick='return confirm("Anda yakin ingin hapus?");'>Hapus</a>
                                     </td>
                                 </tbody>
                                 <?php $nomor++; ?>
@@ -90,7 +90,7 @@ $polis = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 </div>
                 <div class="modal-body">
                     <!-- Form tambah data obat disini -->
-                    <form action="pages/poli/tambahPoli.php" method="post">
+                    <form action="../../pages/poli/tambahPoli.php" method="post">
                         <div class="form-group">
                             <label for="nama_poli">Nama Poli</label>
                             <input type="text" class="form-control" id="nama_poli" name="nama_poli" required>
@@ -111,7 +111,7 @@ $polis = mysqli_fetch_all($result, MYSQLI_ASSOC);
         $(document).ready(function() {
             $('.edit-btn').on('click', function() {
                 var dataId = $(this).data('obatid');
-                $('#seg-modal').load('pages/poli/editPoli.php?id=' + dataId, function() {
+                $('#seg-modal').load('../../pages/poli/editPoli.php?id=' + dataId, function() {
                     $('#editModal').modal('show');
                 });
             });

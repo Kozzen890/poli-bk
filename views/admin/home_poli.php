@@ -7,16 +7,16 @@ if (isset($_SESSION['role_id'])) {
 
   // Tentukan file sidebar yang akan dimuat berdasarkan role
   if ($role === 1) {
-    $sidebar_file = 'components/sidebar_admin.php';
+    $sidebar_file = '../../components/sidebar_admin.php';
   } elseif ($role === 2) {
-    $sidebar_file = 'components/sidebar_dokter.php';
+    $sidebar_file = '../../components/sidebar_dokter.php';
   } else {
     // Atur default jika $_SESSION['role_id'] tidak terdefinisi atau tidak sesuai
-    $sidebar_file = 'components/sidebar_pasien.php';
+    $sidebar_file = '../../components/sidebar_pasien.php';
   }
 } else {
   // Atur default jika $_SESSION['role_id'] belum terdefinisi
-  $sidebar_file = 'components/sidebar_pasien.php';
+  $sidebar_file = '../../components/sidebar_pasien.php';
 }
 ?>
 <!DOCTYPE html>
@@ -35,10 +35,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome Icons -->
   <!-- <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css"> -->
-  <link rel="stylesheet" href="./helper/AdminLTE/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="../../helper/AdminLTE/plugins/fontawesome-free/css/all.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <!-- Theme style -->
-  <link rel="stylesheet" href="./helper/AdminLTE/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="../../helper/AdminLTE/dist/css/adminlte.min.css">
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -46,7 +46,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- Navbar -->
     <?php
-    include('components/navbar.php');
+    include('../../components/navbar.php');
     ?>
     <!-- /.navbar -->
 
@@ -59,7 +59,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="content-wrapper">
       <!-- Main content -->
       <?php
-      include('pages/poli/poli.php');
+      include('../../pages/poli/poli.php');
       ?>
       <!-- /.content -->
     </div>
@@ -77,7 +77,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- Main Footer -->
     <?php
-    include('components/footer.php');
+    include('../../components/footer.php');
     ?>
   </div>
   <!-- ./wrapper -->
@@ -85,11 +85,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- REQUIRED SCRIPTS -->
 
   <!-- jQuery -->
-  <script src="./helper/AdminLTE/plugins/jquery/jquery.min.js"></script>
+  <script src="../../helper/AdminLTE/plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
-  <script src="./helper/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../../helper/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- AdminLTE App -->
-  <script src="./helper/AdminLTE/dist/js/adminlte.min.js"></script>
+  <script src="../../helper/AdminLTE/dist/js/adminlte.min.js"></script>
 </body>
 
 </html>

@@ -45,15 +45,15 @@ if (mysqli_num_rows($result) == 1) {
 
   switch ($role) {
     case '1':
-      $redirect_url = '../dashboard.php';
+      $redirect_url = '../views/home/dashboard.php';
       $welcomeMessage = 'Selamat datang, Admin ' . ucfirst($row['nama']) . '!';
       break;
     case '2':
-      $redirect_url = '../dashboard.php';
+      $redirect_url = '../views/home/dashboard.php';
       $welcomeMessage = 'Selamat datang, Dokter ' . ucfirst($row['nama']) . '!';
       break;
     case '3':
-      $redirect_url = '../dashboard.php';
+      $redirect_url = '../views/home/dashboard.php';
       $welcomeMessage = 'Selamat datang, Pasien ' . ucfirst($row['nama']) . '!';
       break;
     default:

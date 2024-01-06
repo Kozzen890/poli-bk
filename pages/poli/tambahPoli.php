@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // exit();
         echo '<script>';
         echo 'alert("Data poli berhasil ditambahkan!");';
-        echo 'window.location.href = "../../home_poli.php";';
+        echo 'window.location.href = "../../views/admin/home_poli.php";';
         echo '</script>';
         exit();
     } else {
