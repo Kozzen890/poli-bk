@@ -42,12 +42,12 @@ $no_rm = isset($_SESSION['no_rm']) ? $_SESSION['no_rm'] : '';
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">Daftar PoliKlinik</h1>
+                <h1 class="m-0">Daftar Poliklinik</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="dashboard.php?page=home">Home</a></li>
-                    <li class="breadcrumb-item active">PoliKlinik</li>
+                    <li class="breadcrumb-item active">Polikllinik</li>
                 </ol>
             </div><!-- /.col -->
         </div><!-- /.row -->

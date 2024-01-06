@@ -47,14 +47,14 @@ $nama = $_SESSION['nama']; // Ambil nama dari session
         <!-- Menampilkan menu khusus dokter -->
         <li class="nav-item">
           <a href="../home/dashboard.php" class="nav-link">
-            <i class="nav-icon fas fa-notes-medical"></i>
+            <i class="nav-icon fas fa-house-user"></i>
             <p>Dashboard</p>
             <span class="right badge badge-success">Pasien</span>
           </a>
         </li>
         <li class="nav-item">
           <a href="../pasien/home_poli_pasien.php" class="nav-link">
-            <i class="nav-icon fas fa-stethoscope"></i>
+            <i class="nav-icon fas fa-clinic-medical"></i>
             <p>Poli</p>
             <span class="right badge badge-success">Pasien</span>
           </a>

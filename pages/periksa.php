@@ -1,11 +1,12 @@
 <?php
 include '../../koneksi.php';
 
-$query = "SELECT dokter.*, dokter.nama AS nama_dokter, daftar_poli.*
+$query = "SELECT dokter.*, dokter.nama AS nama_dokter, daftar_poli.*, pasien.nama AS nama_pasien
     FROM user_roles
     INNER JOIN dokter ON user_roles.nama = dokter.nama
     INNER JOIN jadwal_periksa ON dokter.id = jadwal_periksa.id_dokter
     INNER JOIN daftar_poli ON jadwal_periksa.id = daftar_poli.id_jadwal
+    INNER JOIN pasien ON daftar_poli.id_pasien = pasien.id
     WHERE user_roles.nama = '$nama'";
 
 $result = mysqli_query($mysqli, $query);
@@ -57,7 +58,7 @@ $periksas = mysqli_fetch_all($result, MYSQLI_ASSOC);
               <?php foreach ($periksas as $periksa) : ?>
                 <tbody>
                   <td><?= $nomor; ?></td>
-                  <td><?= $periksa["id_pasien"];  ?></td>
+                  <td><?= $periksa["nama_pasien"];  ?></td>
                   <td><?= $periksa["keluhan"];  ?></td>
                   <td>
                     <a href='home_periksapasien.php?id=<?= $periksa['id']; ?>' class='btn btn-primary'>Periksa</a>
