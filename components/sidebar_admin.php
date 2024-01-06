@@ -60,7 +60,17 @@ $nama = $_SESSION['nama']; // Ambil nama dari session
             <span class="right badge badge-primary">Admin</span>
           </a>
         </li>
-        <li class="nav-item menu-open">
+        <li class="nav-item">
+          <a href="../admin/home_pasien.php" class="nav-link">
+            <i class="nav-icon fas fa-user-md"></i>
+            <p>
+              Pasien
+              <!-- <span class="right badge badge-danger">New</span> -->
+            </p>
+            <span class="right badge badge-primary">Admin</span>
+          </a>
+        </li>
+        <!-- <li class="nav-item menu-open">
           <a href="#" class="nav-link">
             <i class="nav-icon fas fa-user-injured"></i>
             <p>
@@ -95,7 +105,7 @@ $nama = $_SESSION['nama']; // Ambil nama dari session
               </a>
             </li>
           </ul>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a href="../admin/home_poli.php" class="nav-link">
             <i class="nav-icon fas fas fa-clinic-medical"></i>
