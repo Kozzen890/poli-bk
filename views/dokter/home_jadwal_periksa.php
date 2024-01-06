@@ -56,7 +56,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="content-wrapper">
       <!-- Main content -->
       <?php
-      include('../../pages/jadwal_periksa_dokter.php');
+      include('../../pages/jadwalPeriksa/jadwal_periksa_dokter.php');
       ?>
       <!-- /.content -->
     </div>

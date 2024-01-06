@@ -7,13 +7,13 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['role'])) {
 
   // Redirect ke halaman sesuai dengan peran (role) pengguna
   if ($role === '1') {
-    header('Location: ../dashboard.php');
+    header('Location: ../views/home/dashboard.php');
     exit();
   } elseif ($role === '2') {
-    header('Location: ../dashboard.php');
+    header('Location: ../views/home/dashboard.php');
     exit();
   } elseif ($role === '3') {
-    header('Location: ../dashboard.php');
+    header('Location: ../views/home/dashboard.php');
     exit();
   }
 } else {
