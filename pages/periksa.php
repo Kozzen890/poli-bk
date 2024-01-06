@@ -1,5 +1,5 @@
 <?php
-include 'koneksi.php';
+include '../../koneksi.php';
 
 $query = "SELECT dokter.*, dokter.nama AS nama_dokter, daftar_poli.*
     FROM user_roles
@@ -60,7 +60,7 @@ $periksas = mysqli_fetch_all($result, MYSQLI_ASSOC);
                   <td><?= $periksa["id_pasien"];  ?></td>
                   <td><?= $periksa["keluhan"];  ?></td>
                   <td>
-                    <a href='home_periksa_pasien.php?id=<?= $periksa['id']; ?>' class='btn btn-primary'>Periksa</a>
+                    <a href='home_periksapasien.php?id=<?= $periksa['id']; ?>' class='btn btn-primary'>Periksa</a>
                   </td>
                 </tbody>
                 <?php $nomor++; ?>
