@@ -47,6 +47,7 @@ $nama = $_SESSION['nama']; // Ambil nama dari session
           <a href="../home/dashboard.php" class="nav-link ">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>Dashboard</p>
+            <span class="right badge badge-primary">Admin</span>
           </a>
         </li>
         <li class="nav-item">
@@ -56,6 +57,7 @@ $nama = $_SESSION['nama']; // Ambil nama dari session
               Dokter
               <!-- <span class="right badge badge-danger">New</span> -->
             </p>
+            <span class="right badge badge-primary">Admin</span>
           </a>
         </li>
         <li class="nav-item menu-open">
@@ -65,6 +67,7 @@ $nama = $_SESSION['nama']; // Ambil nama dari session
               Pasien
               <i class="right fas fa-angle-left"></i>
             </p>
+
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
@@ -100,6 +103,7 @@ $nama = $_SESSION['nama']; // Ambil nama dari session
               Poli Klinik
               <!-- <span class="right badge badge-danger">New</span> -->
             </p>
+            <span class="right badge badge-primary">Admin</span>
           </a>
         </li>
         <li class="nav-item">
@@ -109,6 +113,7 @@ $nama = $_SESSION['nama']; // Ambil nama dari session
               Obat
               <!-- <span class="right badge badge-danger">New</span> -->
             </p>
+            <span class="right badge badge-primary">Admin</span>
           </a>
         </li>
         <!-- ... Menu lainnya untuk admin ... -->

@@ -48,30 +48,35 @@ $nama = $_SESSION['nama']; // Ambil nama dari session
           <a href="../home/dashboard.php" class="nav-link">
             <i class="nav-icon fas fa-notes-medical"></i>
             <p>Dashboard</p>
+            <span class="right badge badge-warning">Dokter</span>
           </a>
         </li>
         <li class="nav-item">
           <a href="../dokter/home_jadwal_periksa.php" class="nav-link">
             <i class="nav-icon fas fa-notes-medical"></i>
             <p>Jadwal Periksa</p>
+            <span class="right badge badge-warning">Dokter</span>
           </a>
         </li>
         <li class="nav-item">
           <a href="../dokter/home_periksa.php" class="nav-link">
             <i class="nav-icon fas fa-history"></i>
             <p>Memeriksa Pasien</p>
+            <span class="right badge badge-warning">Dokter</span>
           </a>
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link">
             <i class="nav-icon fas fa-history"></i>
             <p>Riwayat Pasien</p>
+            <span class="right badge badge-warning">Dokter</span>
           </a>
         </li>
         <li class="nav-item">
           <a href="../dokter/home_profile.php" class="nav-link">
             <i class="nav-icon fas fa-history"></i>
             <p>Profile</p>
+            <span class="right badge badge-warning">Dokter</span>
           </a>
         </li>
         <!-- ... Menu lainnya untuk dokter ... -->

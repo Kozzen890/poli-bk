@@ -55,10 +55,10 @@ $jadwals = mysqli_fetch_all($result, MYSQLI_ASSOC);
             <table class="table table-hover text-nowrap">
               <thead>
                 <tr>
-                  <th>Nomor</th>
+                  <th>No.</th>
                   <th>Hari</th>
-                  <th>Jam_Mulai</th>
-                  <th>Jam_Selesai</th>
+                  <th>Jam Mulai</th>
+                  <th>Jam Selesai</th>
                   <th>Aksi</th>
                 </tr>
               </thead>
