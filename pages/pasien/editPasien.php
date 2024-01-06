@@ -20,7 +20,7 @@ $row = mysqli_fetch_assoc($data);
                 </button>
             </div>
             <div class="modal-body">
-                <form id="editForm" method="POST" action="pages/pasien/updatePasien.php">
+                <form id="editForm" method="POST" action="../../pages/pasien/updatePasien.php">
                     <input type="hidden" name="id" value="<?= $row['id']; ?>">
                     <div class="form-group">
                         <label for="nama">Nama Pasien</label>

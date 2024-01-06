@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // exit();
         echo '<script>';
         echo 'alert("Data Pasien berhasil ditambahkan!");';
-        echo 'window.location.href = "../../home_pasien.php";';
+        echo 'window.location.href = "../../views/admin/home_pasien.php";';
         echo '</script>';
         exit();
     } else {

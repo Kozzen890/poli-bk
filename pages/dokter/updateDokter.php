@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Jika berhasil, redirect kembali ke halaman index atau sesuaikan dengan kebutuhan Anda
         echo '<script>';
         echo 'alert("Data Dokter berhasil diubah!");';
-        echo 'window.location.href = "../../home_dokter.php";';
+        echo 'window.location.href = "../../views/admin/home_dokter.php";';
         echo '</script>';
         exit();
     } else {

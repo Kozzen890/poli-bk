@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Jika berhasil, redirect kembali ke halaman index atau sesuaikan dengan kebutuhan Anda
         echo '<script>';
         echo 'alert("Data Pasien berhasil diubah!");';
-        echo 'window.location.href = "../../home_pasien.php";';
+        echo 'window.location.href = "../../views/admin/home_pasien.php";';
         echo '</script>';
         exit();
     } else {

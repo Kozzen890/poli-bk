@@ -1,5 +1,5 @@
 <?php
-include 'koneksi.php';
+include '../../koneksi.php';
 
 $query = "SELECT * FROM obat";
 $result = mysqli_query($mysqli, $query);
@@ -62,7 +62,7 @@ $obats = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                     <td><?= $obat["harga"];  ?></td>
                                     <td>
                                         <button type='button' class='btn btn-sm btn-warning edit-btn' data-obatid='<?= $obat['id']; ?>'>Edit</button>
-                                        <a href='pages/obat/hapusObat.php?id=<?= $obat['id']; ?>' class='btn btn-sm btn-danger' onclick='return confirm("Anda yakin ingin hapus?");'>Hapus</a>
+                                        <a href='../../pages/obat/hapusObat.php?id=<?= $obat['id']; ?>' class='btn btn-sm btn-danger' onclick='return confirm("Anda yakin ingin hapus?");'>Hapus</a>
                                     </td>
                                 </tbody>
                                 <?php $nomor++; ?>
@@ -92,7 +92,7 @@ $obats = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 </div>
                 <div class="modal-body">
                     <!-- Form tambah data obat disini -->
-                    <form action="pages/obat/tambahObat.php" method="post">
+                    <form action="../../pages/obat/tambahObat.php" method="post">
                         <div class="form-group">
                             <label for="nama_obat">Nama Obat</label>
                             <input type="text" class="form-control" id="nama_obat" name="nama_obat" required>
@@ -117,7 +117,7 @@ $obats = mysqli_fetch_all($result, MYSQLI_ASSOC);
         $(document).ready(function() {
             $('.edit-btn').on('click', function() {
                 var dataId = $(this).data('obatid');
-                $('#seg-modal').load('pages/obat/editObat.php?id=' + dataId, function() {
+                $('#seg-modal').load('../../pages/obat/editObat.php?id=' + dataId, function() {
                     $('#editModal').modal('show');
                 });
             });

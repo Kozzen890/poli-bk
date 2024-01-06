@@ -1,5 +1,5 @@
 <?php
-include './koneksi.php';
+include '../../koneksi.php';
 
 // Query untuk menghitung jumlah pasien
 $query_jml_pasien = "SELECT COUNT(*) as jumlah_pasien FROM pasien";

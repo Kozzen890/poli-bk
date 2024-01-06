@@ -1,10 +1,28 @@
 <?php
-include 'koneksi.php';
+include '../../koneksi.php';
 
 $query = "SELECT * FROM pasien";
 $result = mysqli_query($mysqli, $query);
 
 $pasiens = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+$tahun_bulan = date('Ym');
+
+$query_no_rm = "SELECT MAX(SUBSTRING_INDEX(no_rm, '-', -1)) as max_no_rm FROM pasien WHERE SUBSTRING_INDEX(no_rm, '-', 1) = '$tahun_bulan'";
+$result_no_rm = mysqli_query($mysqli, $query_no_rm);
+$row_no_rm = mysqli_fetch_assoc($result_no_rm);
+$max_no_rm = $row_no_rm['max_no_rm'];
+
+if ($max_no_rm === null) {
+    $nomor_rm = 1;
+} else {
+    // Jika sudah ada antrian, tambahkan 1
+    $nomor_rm = $max_no_rm + 1;
+}
+
+// Format antrian sesuai kebutuhan
+$no_rm = sprintf("%s-%03d", $tahun_bulan, $nomor_rm);
+?>
 ?>
 
 <!-- Content Header (Page header) -->
@@ -66,7 +84,7 @@ $pasiens = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                     <td><?= $pasien["no_rm"];  ?></td>
                                     <td>
                                         <button type='button' class='btn btn-sm btn-warning edit-btn' data-obatid='<?= $pasien['id']; ?>'>Edit</button>
-                                        <a href='pages/pasien/hapusPasien.php?id=<?= $pasien['id']; ?>' class='btn btn-sm btn-danger' onclick='return confirm("Anda yakin ingin hapus?");'>Hapus</a>
+                                        <a href='../../pages/pasien/hapusPasien.php?id=<?= $pasien['id']; ?>' class='btn btn-sm btn-danger' onclick='return confirm("Anda yakin ingin hapus?");'>Hapus</a>
                                     </td>
                                 </tbody>
                                 <?php $nomor++; ?>
@@ -96,7 +114,7 @@ $pasiens = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 </div>
                 <div class="modal-body">
                     <!-- Form tambah data obat disini -->
-                    <form action="pages/pasien/tambahPasien.php" method="post">
+                    <form action="../../pages/pasien/tambahPasien.php" method="post">
                         <div class="form-group">
                             <label for="nama">Nama Pasien</label>
                             <input type="text" class="form-control" id="nama" name="nama" required>
@@ -115,7 +133,7 @@ $pasiens = mysqli_fetch_all($result, MYSQLI_ASSOC);
                         </div>
                         <div class="form-group">
                             <label for="no_rm">Nomor RM</label>
-                            <input type="text" class="form-control" id="no_rm" name="no_rm" required>
+                            <input type="text" class="form-control" id="no_rm" name="no_rm" value=<?= $no_rm; ?> readonly>
                         </div>
                         <button type="submit" class="btn btn-primary">Tambah</button>
                     </form>
@@ -129,7 +147,7 @@ $pasiens = mysqli_fetch_all($result, MYSQLI_ASSOC);
         $(document).ready(function() {
             $('.edit-btn').on('click', function() {
                 var dataId = $(this).data('obatid');
-                $('#seg-modal').load('pages/pasien/editPasien.php?id=' + dataId, function() {
+                $('#seg-modal').load('../../pages/pasien/editPasien.php?id=' + dataId, function() {
                     $('#editModal').modal('show');
                 });
             });

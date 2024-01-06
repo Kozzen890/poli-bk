@@ -44,13 +44,13 @@ $nama = $_SESSION['nama']; // Ambil nama dari session
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Menampilkan menu khusus admin -->
         <li class="nav-item">
-          <a href="dashboard.php" class="nav-link ">
+          <a href="../home/dashboard.php" class="nav-link ">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>Dashboard</p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="home_dokter.php" class="nav-link">
+          <a href="../admin/home_dokter.php" class="nav-link">
             <i class="nav-icon fas fa-user-md"></i>
             <p>
               Dokter
@@ -68,7 +68,7 @@ $nama = $_SESSION['nama']; // Ambil nama dari session
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="home_pasien.php" class="nav-link">
+              <a href="../admin/home_pasien.php" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Daftar Pasien</p>
               </a>
@@ -94,7 +94,7 @@ $nama = $_SESSION['nama']; // Ambil nama dari session
           </ul>
         </li>
         <li class="nav-item">
-          <a href="home_poli.php" class="nav-link">
+          <a href="../admin/home_poli.php" class="nav-link">
             <i class="nav-icon fas fas fa-clinic-medical"></i>
             <p>
               Poli Klinik
@@ -103,7 +103,7 @@ $nama = $_SESSION['nama']; // Ambil nama dari session
           </a>
         </li>
         <li class="nav-item">
-          <a href="home_obat.php" class="nav-link">
+          <a href="../admin/home_obat.php" class="nav-link">
             <i class="nav-icon fas fa-capsules"></i>
             <p>
               Obat

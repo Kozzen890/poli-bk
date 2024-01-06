@@ -1,5 +1,5 @@
 <?php
-include './koneksi.php';
+include '../../koneksi.php';
 
 $query = "SELECT * FROM dokter";
 $result = mysqli_query($mysqli, $query);
@@ -75,7 +75,7 @@ $dokters = mysqli_fetch_all($result, MYSQLI_ASSOC);
                   </td>
                   <td>
                     <button type='button' class='btn btn-sm btn-warning edit-btn' data-obatid='<?= $dokter['id']; ?>'>Edit</button>
-                    <a href='pages/dokter/hapusDokter.php?id=<?= $dokter['id']; ?>' class='btn btn-sm btn-danger' onclick='return confirm("Anda yakin ingin hapus?");'>Hapus</a>
+                    <a href='../../pages/dokter/hapusDokter.php?id=<?= $dokter['id']; ?>' class='btn btn-sm btn-danger' onclick='return confirm("Anda yakin ingin hapus?");'>Hapus</a>
                   </td>
                 </tbody>
                 <?php $nomor++; ?>
@@ -105,7 +105,7 @@ $dokters = mysqli_fetch_all($result, MYSQLI_ASSOC);
         </div>
         <div class="modal-body">
           <!-- Form tambah data obat disini -->
-          <form action="pages/dokter/tambahDokter.php" method="post">
+          <form action="../../pages/dokter/tambahDokter.php" method="post">
             <div class="form-group">
               <label for="nama">Nama Dokter</label>
               <input type="text" class="form-control" id="nama" name="nama" required>
@@ -146,7 +146,7 @@ $dokters = mysqli_fetch_all($result, MYSQLI_ASSOC);
     $(document).ready(function() {
       $('.edit-btn').on('click', function() {
         var dataId = $(this).data('obatid');
-        $('#seg-modal').load('pages/dokter/editDokter.php?id=' + dataId, function() {
+        $('#seg-modal').load('../../pages/dokter/editDokter.php?id=' + dataId, function() {
           $('#editModal').modal('show');
         });
       });
