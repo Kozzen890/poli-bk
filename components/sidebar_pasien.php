@@ -45,7 +45,7 @@ $nama = $_SESSION['nama']; // Ambil nama dari session
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Menampilkan menu khusus dokter -->
         <li class="nav-item">
-          <a href="#" class="nav-link">
+          <a href="dashboard.php" class="nav-link">
             <i class="nav-icon fas fa-notes-medical"></i>
             <p>Dashboard</p>
           </a>

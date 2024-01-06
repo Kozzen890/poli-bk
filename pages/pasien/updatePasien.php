@@ -1,24 +1,30 @@
 <?php
-include("../koneksi.php");
+include("../../koneksi.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Ambil nilai dari form
     $id = $_POST["id"];
-    $nama_poli = $_POST["nama_poli"];
-    $keterangan = $_POST["keterangan"];
+    $nama = $_POST["nama"];
+    $alamat = $_POST["alamat"];
+    $no_ktp = $_POST["no_ktp"];
+    $no_hp = $_POST["no_hp"];
+    $no_rm = $_POST["no_rm"];
 
     // Query untuk melakukan update data poli
-    $query = "UPDATE poli SET 
-        nama_poli = '$nama_poli', 
-        keterangan = '$keterangan'
+    $query = "UPDATE pasien SET 
+        nama = '$nama', 
+        alamat = '$alamat',
+        no_ktp = '$no_ktp',
+        no_hp = '$no_hp',
+        no_rm = '$no_rm'
         WHERE id = '$id'";
 
     // Eksekusi query
     if (mysqli_query($mysqli, $query)) {
         // Jika berhasil, redirect kembali ke halaman index atau sesuaikan dengan kebutuhan Anda
         echo '<script>';
-        echo 'alert("Data poli berhasil diubah!");';
-        echo 'window.location.href = "../home_poli.php";';
+        echo 'alert("Data Pasien berhasil diubah!");';
+        echo 'window.location.href = "../../home_pasien.php";';
         echo '</script>';
         exit();
     } else {
@@ -29,4 +35,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 // Tutup koneksi
 mysqli_close($mysqli);
-?>

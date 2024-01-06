@@ -1,5 +1,5 @@
 <?php
-include '../koneksi.php';
+include '../../koneksi.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Ambil nilai dari form
@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Query untuk menambahkan data obat ke dalam tabel
     $query = "INSERT INTO pasien (nama, alamat, no_ktp, no_hp, no_rm) VALUES ('$nama', '$alamat', '$no_ktp', '$no_hp', '$no_rm')";
-    
+
 
     // if ($koneksi->query($query) === TRUE) {
     // Eksekusi query
@@ -21,16 +21,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // exit();
         echo '<script>';
         echo 'alert("Data Pasien berhasil ditambahkan!");';
-        echo 'window.location.href = "../home_pasien.php";';
+        echo 'window.location.href = "../../home_pasien.php";';
         echo '</script>';
         exit();
     } else {
         // Jika terjadi kesalahan, tampilkan pesan error
         echo "Error: " . $query . "<br>" . mysqli_error($mysqli);
     }
-    
 }
 
 // Tutup koneksi
 mysqli_close($mysqli);
-?>

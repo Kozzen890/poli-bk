@@ -1,11 +1,11 @@
 <?php
-    include("../koneksi.php");
+include("../../koneksi.php");
 
-    $id = $_GET['id']; //mengambil id user yang ingin diubah
+$id = $_GET['id']; //mengambil id user yang ingin diubah
 
-    //menampilkan user berdasarkan id
-    $data = mysqli_query($mysqli, "select * from poli where id = '$id'");
-    $row = mysqli_fetch_assoc($data);
+//menampilkan user berdasarkan id
+$data = mysqli_query($mysqli, "select * from poli where id = '$id'");
+$row = mysqli_fetch_assoc($data);
 ?>
 
 <!-- Modal -->
@@ -20,17 +20,17 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="editForm" method="POST" action="pages/updatePoli.php">
+                <form id="editForm" method="POST" action="pages/poli/updatePoli.php">
                     <input type="hidden" name="id" value="<?= $row['id']; ?>">
                     <div class="form-group">
                         <label for="nama_poli">Nama Poli</label>
-                        <input type="text" class="form-control" id="nama_poli" name="nama_poli" value="<?= $row['nama_poli']; ?>"required>
+                        <input type="text" class="form-control" id="nama_poli" name="nama_poli" value="<?= $row['nama_poli']; ?>" required>
                     </div>
                     <div class="form-group">
                         <label for="keterangan">keterangan</label>
                         <input type="text" class="form-control" id="keterangan" name="keterangan" value="<?= $row['keterangan']; ?>" required>
                     </div>
-                  
+
                     <input type="submit" name="submit" value="Update" class="btn btn-primary">
                 </form>
             </div>

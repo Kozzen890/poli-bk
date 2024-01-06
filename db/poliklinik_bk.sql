@@ -42,7 +42,7 @@ CREATE TABLE `daftar_poli` (
 
 LOCK TABLES `daftar_poli` WRITE;
 /*!40000 ALTER TABLE `daftar_poli` DISABLE KEYS */;
-INSERT INTO `daftar_poli` VALUES (4,11,1,'Demam',1),(5,11,2,'Demam',1),(6,13,1,'Demam',2);
+INSERT INTO `daftar_poli` VALUES (4,11,1,'Demam',1),(5,11,2,'Demam',1);
 /*!40000 ALTER TABLE `daftar_poli` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -90,7 +90,7 @@ CREATE TABLE `dokter` (
   PRIMARY KEY (`id`),
   KEY `id_poli` (`id_poli`),
   CONSTRAINT `dokter_ibfk_1` FOREIGN KEY (`id_poli`) REFERENCES `poli` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -116,6 +116,7 @@ CREATE TABLE `jadwal_periksa` (
   `hari` enum('Senin','Selasa','Rabu','Kamis','Jumat','Sabtu') COLLATE utf8mb4_general_ci NOT NULL,
   `jam_mulai` time NOT NULL,
   `jam_selesai` time NOT NULL,
+  `aktif` char(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_dokter` (`id_dokter`),
   CONSTRAINT `jadwal_periksa_ibfk_1` FOREIGN KEY (`id_dokter`) REFERENCES `dokter` (`id`)
@@ -128,7 +129,7 @@ CREATE TABLE `jadwal_periksa` (
 
 LOCK TABLES `jadwal_periksa` WRITE;
 /*!40000 ALTER TABLE `jadwal_periksa` DISABLE KEYS */;
-INSERT INTO `jadwal_periksa` VALUES (1,13,'Rabu','08:00:00','10:00:00'),(2,13,'Jumat','08:30:00','09:30:00');
+INSERT INTO `jadwal_periksa` VALUES (1,13,'Rabu','08:00:00','10:00:00',NULL),(2,13,'Jumat','08:30:00','09:30:00',NULL);
 /*!40000 ALTER TABLE `jadwal_periksa` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -145,7 +146,7 @@ CREATE TABLE `obat` (
   `kemasan` varchar(35) COLLATE utf8mb4_general_ci NOT NULL,
   `harga` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -154,7 +155,7 @@ CREATE TABLE `obat` (
 
 LOCK TABLES `obat` WRITE;
 /*!40000 ALTER TABLE `obat` DISABLE KEYS */;
-INSERT INTO `obat` VALUES (1,'paracetamol','tablet',5000),(3,'loperamide','kapsul',10000),(4,'sangobion','kapsul',20000);
+INSERT INTO `obat` VALUES (1,'paracetamol','tablet',5000),(3,'loperamide','kapsul',10000),(4,'sangobion','kapsul',20000),(7,'Antibiotik','5 x 5 Tablet',15000);
 /*!40000 ALTER TABLE `obat` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -173,7 +174,7 @@ CREATE TABLE `pasien` (
   `no_hp` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
   `no_rm` varchar(25) COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -182,7 +183,7 @@ CREATE TABLE `pasien` (
 
 LOCK TABLES `pasien` WRITE;
 /*!40000 ALTER TABLE `pasien` DISABLE KEYS */;
-INSERT INTO `pasien` VALUES (11,'Kozzen','Semarang','1','180302','202401-001'),(13,'Heru','Ngaliyan','123','123','202401-002');
+INSERT INTO `pasien` VALUES (11,'Kozzen','Semarang','1','180302','202401-001'),(14,'Tim','Semarang','12345678','12345678','202401-003'),(15,'Daniel','Jabungan','890','890','202401-004');
 /*!40000 ALTER TABLE `pasien` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -226,7 +227,7 @@ CREATE TABLE `poli` (
   `nama_poli` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `keterangan` text COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -278,7 +279,7 @@ CREATE TABLE `user_roles` (
   PRIMARY KEY (`id`),
   KEY `role_id` (`role_id`),
   CONSTRAINT `user_roles_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -287,7 +288,7 @@ CREATE TABLE `user_roles` (
 
 LOCK TABLES `user_roles` WRITE;
 /*!40000 ALTER TABLE `user_roles` DISABLE KEYS */;
-INSERT INTO `user_roles` VALUES (5,1,'admin','123'),(14,3,'Kozzen','180302'),(15,2,'Meliora','08223627389'),(17,2,'Gloria','271201'),(19,3,'Heru','123');
+INSERT INTO `user_roles` VALUES (5,1,'admin','123'),(14,3,'Kozzen','180302'),(15,2,'Meliora','08223627389'),(17,2,'Gloria','271201'),(20,3,'Tim','12345678'),(22,3,'Daniel','890');
 /*!40000 ALTER TABLE `user_roles` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -300,4 +301,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-01-06  6:51:08
+-- Dump completed on 2024-01-06 10:43:30
