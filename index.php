@@ -17,24 +17,14 @@
 
 <body>
   <header class="header" id="header">
-    <nav class="nav container">
-      <a href="#" class="nav_logo">Poliklinik</a>
-
-      <!-- <div class="nav_menu" id="nav-menu">
-        <ul class="nav_list grid">
-          <li class="nav_item">
-            <a href="#about" class="nav_link"> <i class="uil uil-user nav_icon"></i> Home </a>
-          </li>
-          <li class="nav_item">
-            <a href="#projects" class="nav_link"> <i class="uil uil-server-network nav_icon"></i> Projects </a>
-          </li>
-          <li class="nav_item">
-            <a href="#messages" class="nav_link"> <i class="uil uil-message nav_icon"></i> Contact Me </a>
-          </li>
-        </ul>
-        <i class="uil uil-times nav_close" id="nav-close"></i>
-      </div> -->
-
+    <!-- Image and text -->
+    <nav class="navbar navbar-dark bg-body-secondary bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <!-- <img src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp" class="me-2" height="20" alt="MDB Logo" loading="lazy" /> -->
+          <small>Poliklinik BK</small>
+        </a>
+      </div>
     </nav>
   </header>
 

@@ -44,8 +44,10 @@
               </thead>
               <tbody>
                 <?php
+
                 $nomor = 1;
-                $query = "SELECT * FROM pasien";
+                $query =
+                  "SELECT * FROM pasien";
                 $results = $mysqli->query($query);
 
                 if ($results->num_rows == 0) {
