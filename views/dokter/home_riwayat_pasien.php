@@ -1,5 +1,8 @@
 <?php
 session_start();
+// $id_dokter = $_SESSION['id'];
+// $username = $_SESSION['username'];
+// $id_poli = $_SESSION['id_poli'];
 
 // Mendapatkan role dari session atau dari tempat lain sesuai kebutuhan
 if (isset($_SESSION['role_id'])) {

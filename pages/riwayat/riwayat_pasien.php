@@ -46,9 +46,11 @@
                 <?php
 
                 $nomor = 1;
-                $query =
-                  "SELECT * FROM pasien";
-                $results = $mysqli->query($query);
+                $id_dokter = $_SESSION['id_dokter'];
+                $query = "SELECT daftar_poli.status_periksa, periksa.id, pasien.alamat, pasien.id as idPasien, pasien.no_ktp, pasien.no_hp, pasien.no_rm, periksa.tgl_periksa, pasien.nama as namaPasien, dokter.nama, daftar_poli.keluhan, periksa.catatan, GROUP_CONCAT(obat.nama_obat) as namaObat, SUM(obat.harga) AS hargaObat FROM detail_periksa INNER JOIN periksa ON detail_periksa.id_periksa = periksa.id INNER JOIN daftar_poli ON periksa.id_daftar_poli = daftar_poli.id INNER JOIN pasien ON daftar_poli.id_pasien = pasien.id INNER JOIN obat ON detail_periksa.id_obat = obat.id INNER JOIN jadwal_periksa ON daftar_poli.id_jadwal = jadwal_periksa.id INNER JOIN dokter ON jadwal_periksa.id_dokter = dokter.id WHERE dokter.id = '$id_dokter' AND status_periksa = '1' GROUP BY pasien.id";
+
+                $results = mysqli_query($mysqli, $query);
+                // $results = $mysqli->query($query);
 
                 if ($results->num_rows == 0) {
                   echo "<tr><td colspan='7' align='center'>Tidak ada data</td></tr>";
@@ -57,7 +59,7 @@
                 ?>
                     <tr>
                       <td><?= $nomor++; ?></td>
-                      <td><?= $d['nama']; ?></td>
+                      <td><?= $d['namaPasien']; ?></td>
                       <td><?= $d['alamat']; ?></td>
                       <td><?= $d['no_ktp']; ?></td>
                       <td><?= $d['no_hp']; ?></td>
@@ -89,28 +91,36 @@ $results->data_seek(0);
 while ($d = $results->fetch_assoc()) {
   $no_detail = 1;
   $pasien_id = $d['id'];
-  $data2 = $mysqli->query("SELECT 
-                p.nama AS 'nama_pasien',
-                pr.*,
-                d.nama AS 'nama_dokter',
-                dpo.keluhan AS 'keluhan',
-                GROUP_CONCAT(o.nama_obat, ' | ', o.kemasan , ' | ', o.harga SEPARATOR ', ') AS 'obat'
-                FROM periksa pr
-                LEFT JOIN daftar_poli dpo ON (pr.id_daftar_poli = dpo.id)
-                LEFT JOIN jadwal_periksa jp ON (dpo.id_jadwal = jp.id)
-                LEFT JOIN dokter d ON (jp.id_dokter = d.id)
-                LEFT JOIN pasien p ON (dpo.id_pasien = p.id)
-                LEFT JOIN detail_periksa dp ON (pr.id = dp.id_periksa)
-                LEFT JOIN obat o ON (dp.id_obat = o.id)
-                WHERE dpo.id_pasien = '$pasien_id'
-                GROUP BY pr.id
-                ORDER BY pr.tgl_periksa DESC;");
+  $data2 = $mysqli->query("SELECT
+    p.nama AS 'nama_pasien',
+    pr.*,
+    d.nama AS 'nama_dokter',
+    dpo.keluhan AS 'keluhan',
+    GROUP_CONCAT(o.nama_obat, ' | ', o.kemasan , ' | ', o.harga SEPARATOR ', ') AS 'obat',
+    jp.id AS id_jadwal_periksa,
+    jp.hari,
+    jp.jam_mulai,
+    jp.jam_selesai
+FROM
+    periksa pr
+    LEFT JOIN daftar_poli dpo ON pr.id_daftar_poli = dpo.id
+    LEFT JOIN jadwal_periksa jp ON dpo.id_jadwal = jp.id
+    LEFT JOIN dokter d ON jp.id_dokter = d.id
+    LEFT JOIN pasien p ON dpo.id_pasien = p.id
+    LEFT JOIN detail_periksa dp ON pr.id = dp.id_periksa
+    LEFT JOIN obat o ON dp.id_obat = o.id
+WHERE
+    dpo.id_pasien = '$pasien_id'
+GROUP BY
+    pr.id
+ORDER BY
+    pr.tgl_periksa DESC;");
 ?>
   <div class="modal fade" id="detailModal<?= $d['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true" data-backdrop="static">
     <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalScrollableTitle">Riwayat <?= $d['nama'] ?></h5>
+          <h5 class="modal-title" id="exampleModalScrollableTitle">Riwayat <?= $d['namaPasien'] ?></h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>

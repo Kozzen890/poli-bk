@@ -27,20 +27,24 @@ if (isset($_POST['submit'])) {
       }
     }
   }
+  $getLastData = "SELECT * FROM periksa ORDER BY id DESC LIMIT 1";
+  $queryGetLastData = mysqli_query($mysqli, $getLastData);
+  $getIdPeriksa = mysqli_fetch_assoc($queryGetLastData);
 
+  $idPeriksa = $getIdPeriksa['id'];
   // Query Data Periksa
   $total_harga = $total_harga_obat + $total_jasa;
-  $query_periksa = "UPDATE periksa SET id_daftar_poli = '$id_daftar_poli', tgl_periksa = '$tgl_periksa', catatan = '$catatan', biaya_periksa = '$total_harga' WHERE id = $id_periksa";
+  $query_periksa = "UPDATE periksa SET id_daftar_poli = '$id_daftar_poli', tgl_periksa = '$tgl_periksa', catatan = '$catatan', biaya_periksa = '$total_harga' WHERE id = $idPeriksa";
   $result_periksa = mysqli_query($mysqli, $query_periksa);
 
   // Hapus semua obat terkait dengan id_periksa
-  $query_delete_obat = "DELETE FROM detail_periksa WHERE id_periksa = $id_periksa";
+  $query_delete_obat = "DELETE FROM detail_periksa WHERE id_periksa = $idPeriksa";
   mysqli_query($mysqli, $query_delete_obat);
 
   // Tambahkan obat-obat yang baru dipilih
   if (!empty($obat)) {
     foreach ($obat as $id_obat) {
-      $query_insert_obat = "INSERT INTO detail_periksa (id_periksa, id_obat) VALUES ($id_periksa, $id_obat)";
+      $query_insert_obat = "INSERT INTO detail_periksa (id_periksa, id_obat) VALUES ($idPeriksa, $id_obat)";
       mysqli_query($mysqli, $query_insert_obat);
     }
   }

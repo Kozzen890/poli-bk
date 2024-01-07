@@ -13,36 +13,25 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <!--==================== CSS ====================-->
-  <link rel="stylesheet" href="../config/style.css" />
+  <link rel="stylesheet" href="../config/net.css" />
 </head>
 
 <body>
   <header class="header" id="header">
-    <nav class="nav container">
-      <a href="#" class="nav_logo">Poliklinik</a>
-
-      <!-- <div class="nav_menu" id="nav-menu">
-        <ul class="nav_list grid">
-          <li class="nav_item">
-            <a href="#about" class="nav_link"> <i class="uil uil-user nav_icon"></i> Home </a>
-          </li>
-          <li class="nav_item">
-            <a href="#projects" class="nav_link"> <i class="uil uil-server-network nav_icon"></i> Projects </a>
-          </li>
-          <li class="nav_item">
-            <a href="#messages" class="nav_link"> <i class="uil uil-message nav_icon"></i> Contact Me </a>
-          </li>
-        </ul>
-        <i class="uil uil-times nav_close" id="nav-close"></i>
-      </div> -->
-
+    <!-- Image and text -->
+    <nav class="navbar navbar-dark bg-body-secondary bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <small>Poliklinik BK</small>
+        </a>
+      </div>
     </nav>
   </header>
 
   <main class="main">
     <!--==================== PROJECT IN MIND ====================-->
 
-    <section class="project section">
+    <section class="project section mt-5">
       <div class="container-fluid">
         <div class="row">
           <!-- left column -->
