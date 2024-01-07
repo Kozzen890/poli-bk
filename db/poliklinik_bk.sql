@@ -28,12 +28,13 @@ CREATE TABLE `daftar_poli` (
   `id_jadwal` int unsigned NOT NULL,
   `keluhan` text COLLATE utf8mb4_general_ci NOT NULL,
   `no_antrian` int unsigned NOT NULL,
+  `status_periksa` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `id_jadwal` (`id_jadwal`),
   KEY `id_pasien` (`id_pasien`),
   CONSTRAINT `id_jadwal` FOREIGN KEY (`id_jadwal`) REFERENCES `jadwal_periksa` (`id`),
   CONSTRAINT `id_pasien` FOREIGN KEY (`id_pasien`) REFERENCES `pasien` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +43,7 @@ CREATE TABLE `daftar_poli` (
 
 LOCK TABLES `daftar_poli` WRITE;
 /*!40000 ALTER TABLE `daftar_poli` DISABLE KEYS */;
-INSERT INTO `daftar_poli` VALUES (4,11,1,'Demam',1),(5,11,2,'Demam',1);
+INSERT INTO `daftar_poli` VALUES (4,11,1,'Demam',1,0),(5,11,2,'Demam',1,1),(9,15,1,'Sakit',2,1),(10,15,4,'Gigi Nyeri',1,1);
 /*!40000 ALTER TABLE `daftar_poli` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -62,7 +63,7 @@ CREATE TABLE `detail_periksa` (
   KEY `id_obat` (`id_obat`),
   CONSTRAINT `detail_periksa_ibfk_1` FOREIGN KEY (`id_periksa`) REFERENCES `periksa` (`id`),
   CONSTRAINT `detail_periksa_ibfk_2` FOREIGN KEY (`id_obat`) REFERENCES `obat` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -71,6 +72,7 @@ CREATE TABLE `detail_periksa` (
 
 LOCK TABLES `detail_periksa` WRITE;
 /*!40000 ALTER TABLE `detail_periksa` DISABLE KEYS */;
+INSERT INTO `detail_periksa` VALUES (1,1,7),(2,2,1),(3,3,1),(4,3,7);
 /*!40000 ALTER TABLE `detail_periksa` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -90,7 +92,7 @@ CREATE TABLE `dokter` (
   PRIMARY KEY (`id`),
   KEY `id_poli` (`id_poli`),
   CONSTRAINT `dokter_ibfk_1` FOREIGN KEY (`id_poli`) REFERENCES `poli` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -99,7 +101,7 @@ CREATE TABLE `dokter` (
 
 LOCK TABLES `dokter` WRITE;
 /*!40000 ALTER TABLE `dokter` DISABLE KEYS */;
-INSERT INTO `dokter` VALUES (13,'Meliora','Semarang','08223627389',1),(14,'Gloria','Bangunharjo','271201',4);
+INSERT INTO `dokter` VALUES (13,'Meliora','Semarang','08223627389',1),(14,'Gloria','Bangunharjo','271201',4),(17,'Gas','Tes','9992',5),(18,'Tim','Tembalang','222',4);
 /*!40000 ALTER TABLE `dokter` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -116,11 +118,11 @@ CREATE TABLE `jadwal_periksa` (
   `hari` enum('Senin','Selasa','Rabu','Kamis','Jumat','Sabtu') COLLATE utf8mb4_general_ci NOT NULL,
   `jam_mulai` time NOT NULL,
   `jam_selesai` time NOT NULL,
-  `aktif` char(1) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `aktif` char(1) COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'Y',
   PRIMARY KEY (`id`),
   KEY `id_dokter` (`id_dokter`),
   CONSTRAINT `jadwal_periksa_ibfk_1` FOREIGN KEY (`id_dokter`) REFERENCES `dokter` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -129,7 +131,7 @@ CREATE TABLE `jadwal_periksa` (
 
 LOCK TABLES `jadwal_periksa` WRITE;
 /*!40000 ALTER TABLE `jadwal_periksa` DISABLE KEYS */;
-INSERT INTO `jadwal_periksa` VALUES (1,13,'Rabu','08:00:00','10:00:00',NULL),(2,13,'Jumat','08:30:00','09:30:00',NULL);
+INSERT INTO `jadwal_periksa` VALUES (1,13,'Rabu','08:00:00','10:00:00','Y'),(2,13,'Jumat','08:30:00','09:30:00','Y'),(3,14,'Senin','10:00:00','11:00:00','Y'),(4,14,'Jumat','10:30:00','11:30:00','Y');
 /*!40000 ALTER TABLE `jadwal_periksa` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -146,7 +148,7 @@ CREATE TABLE `obat` (
   `kemasan` varchar(35) COLLATE utf8mb4_general_ci NOT NULL,
   `harga` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -174,7 +176,7 @@ CREATE TABLE `pasien` (
   `no_hp` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
   `no_rm` varchar(25) COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -203,7 +205,7 @@ CREATE TABLE `periksa` (
   PRIMARY KEY (`id`),
   KEY `id_daftar_poli` (`id_daftar_poli`),
   CONSTRAINT `id_daftar_poli` FOREIGN KEY (`id_daftar_poli`) REFERENCES `daftar_poli` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -212,6 +214,7 @@ CREATE TABLE `periksa` (
 
 LOCK TABLES `periksa` WRITE;
 /*!40000 ALTER TABLE `periksa` DISABLE KEYS */;
+INSERT INTO `periksa` VALUES (1,10,'2024-01-05 11:11:00','Perlu Ditambal',165000),(2,5,'2024-01-05 09:00:00','Banyak Istirahat dan jangan sering capek-capek',155000),(3,9,'2024-01-02 10:13:00','Terlalu banyak bekerja mengakibatkan kecapekan dan daya tahan tubuh melemah',170000);
 /*!40000 ALTER TABLE `periksa` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -227,7 +230,7 @@ CREATE TABLE `poli` (
   `nama_poli` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `keterangan` text COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -279,7 +282,7 @@ CREATE TABLE `user_roles` (
   PRIMARY KEY (`id`),
   KEY `role_id` (`role_id`),
   CONSTRAINT `user_roles_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -288,7 +291,7 @@ CREATE TABLE `user_roles` (
 
 LOCK TABLES `user_roles` WRITE;
 /*!40000 ALTER TABLE `user_roles` DISABLE KEYS */;
-INSERT INTO `user_roles` VALUES (5,1,'admin','123'),(14,3,'Kozzen','180302'),(15,2,'Meliora','08223627389'),(17,2,'Gloria','271201'),(20,3,'Tim','12345678'),(22,3,'Daniel','890');
+INSERT INTO `user_roles` VALUES (5,1,'admin','123'),(14,3,'Kozzen','180302'),(15,2,'Meliora','08223627389'),(17,2,'Gloria','271201'),(20,3,'Tim','12345678'),(22,3,'Daniel','890'),(23,2,'Gas','999'),(25,2,'Tim','222');
 /*!40000 ALTER TABLE `user_roles` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -301,4 +304,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-01-06 10:43:30
+-- Dump completed on 2024-01-07 20:06:48
