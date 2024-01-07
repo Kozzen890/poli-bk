@@ -163,7 +163,12 @@ $data = mysqli_fetch_assoc($result);
     $(document).ready(function() {
       $('#obat').select2({
         placeholder: "Pilih Obat",
-        allowClear: true
+        allowClear: true,
+        templateSelection: function(data, container) {
+          // Mengubah warna teks ketika dipilih
+          $(container).css("color", "black");
+          return data.text;
+        }
       });
     });
   </script>

@@ -71,10 +71,7 @@ $periksas = mysqli_fetch_all($result, MYSQLI_ASSOC);
                       ';
                     } else {
                       echo '
-                        <a href="' . $BASE_DOKTER_PAGES . '?page=edit_periksa&id_daftar_poli=' . $periksa['id'] . '" class="btn btn-warning">
-                            <i class="fas fa-edit"></i>
-                            Edit
-                        </a>
+                        <button type="button" class="btn btn-sm btn-warning edit-btn" data-periksaid="' . $periksa['id'] . '">Edit</button>
                       ';
                     }
                     ?>
@@ -122,13 +119,18 @@ $periksas = mysqli_fetch_all($result, MYSQLI_ASSOC);
       </div>
     </div>
   </div>
+
+  <div id="seg-modal">
+
+  </div>
+
   <!-- Tambahkan tag script untuk jQuery sebelum script Anda -->
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <script>
     $(document).ready(function() {
       $('.edit-btn').on('click', function() {
-        var dataId = $(this).data('obatid');
-        $('#seg-modal').load('pages/editPoli.php?id=' + dataId, function() {
+        var dataId = $(this).data('periksaid');
+        $('#seg-modal').load('../../pages/periksa/edit_periksa.php?id=' + dataId, function() {
           $('#editModal').modal('show');
         });
       });
