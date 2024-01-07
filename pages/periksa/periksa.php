@@ -71,7 +71,10 @@ $periksas = mysqli_fetch_all($result, MYSQLI_ASSOC);
                       ';
                     } else {
                       echo '
-                        <button type="button" class="btn btn-sm btn-warning edit-btn" data-periksaid="' . $periksa['id'] . '">Edit</button>
+                        <button type="button" class="btn btn-sm btn-warning edit-btn" data-periksaid="' . $periksa['id'] . '">
+                            <i class="fas fa-edit"></i>
+                            Edit
+                        </button>
                       ';
                     }
                     ?>
