@@ -23,7 +23,7 @@ if ($max_no_rm === null) {
 // Format antrian sesuai kebutuhan
 $no_rm = sprintf("%s-%03d", $tahun_bulan, $nomor_rm);
 ?>
-?>
+
 
 <!-- Content Header (Page header) -->
 <div class="content-header">
