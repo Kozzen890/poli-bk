@@ -40,6 +40,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <!-- Theme style -->
   <link rel="stylesheet" href="../../helper/AdminLTE/dist/css/adminlte.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -58,7 +61,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="content-wrapper">
       <!-- Main content -->
       <?php
-      include('../../pages/periksa_pasien.php');
+      include('../../pages/periksa/periksa_pasien.php');
       ?>
       <!-- /.content -->
     </div>
@@ -89,6 +92,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <script src="../../helper/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- AdminLTE App -->
   <script src="../../helper/AdminLTE/dist/js/adminlte.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 </body>
 
 </html>

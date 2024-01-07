@@ -1,7 +1,7 @@
 <?php
-include 'koneksi.php';
+include '../../koneksi.php';
 
-// Mengambil nilai id dari parameter URL
+// // Mengambil nilai id dari parameter URL
 $id_periksa = $_GET['id'];
 
 // Query untuk mengambil data dari tabel daftar_poli berdasarkan id
@@ -13,18 +13,14 @@ $query = "SELECT daftar_poli.*, pasien.nama AS nama_pasien
 $result = mysqli_query($mysqli, $query);
 
 // Mengambil hasil query sebagai array asosiatif
-$periksas = mysqli_fetch_assoc($result);
+$data = mysqli_fetch_assoc($result);
+
 
 // Cek apakah data ditemukan
-if (!$periksas) {
-  // Handle jika data tidak ditemukan, misalnya redirect atau tampilkan pesan
-  echo "Data tidak ditemukan.";
-  exit;
-}
 
-echo '<pre>';
-var_dump($periksas); // atau print_r($polis);
-echo '</pre>';
+// echo '<pre>';
+// var_dump($periksas); // atau print_r($polis);
+// echo '</pre>';
 ?>
 
 <!-- Content Header (Page header) -->
@@ -56,29 +52,46 @@ echo '</pre>';
             </h3>
           </div>
           <div class="card-body">
-            <form action="pages/updateProfile.php" method="post">
+            <form action="../../pages/periksa/tambah_periksa.php" method="post">
               <div class="form-group">
-                <input type="text" class="form-control" id="id" name="id" value="<?= $row['id']; ?>" required>
+                <input type="hidden" class="form-control" id="id" name="id" value="<?= $data['id']; ?>" readonly required>
               </div>
               <div class="form-group">
                 <label for="nama">Nama Pasien</label>
-                <input type="text" class="form-control" id="nama" name="nama" value="<?= $periksas['nama_pasien']; ?>" readonly>
+                <input type="text" class="form-control" id="nama" name="nama" value="<?= $data['nama_pasien'] ?>" readonly>
               </div>
               <div class="form-group">
-                <label for="alamat">Tanggal Periksa</label>
-                <input type="date" class="form-control" id="alamat" name="alamat">
+                <label for="tanggal">Tanggal Periksa</label>
+                <input type="datetime-local" class="form-control" id="tanggal_periksa" name="tanggal_periksa">
               </div>
               <div class="form-group">
-                <label for="no_hp">Catatan</label>
-                <input type="text" class="form-control" id="no_hp" name="no_hp">
+                <label for="catatan">Catatan</label>
+                <textarea class="form-control" id="catatan" name="catatan" placeholder="Masukkan catatan pemeriksaan"></textarea>
               </div>
               <div class="form-group">
-                <label for="no_hp">Obat</label>
-                <input type="text" class="form-control" id="no_hp" name="no_hp" value="<?= $row['no_hp']; ?>">
+                <label for="obat">Obat</label>
+                <select name="obat[]" id="obat" class="form-control" multiple="multiple">
+                  <optgroup label="Pilih Obat">
+                    <?php
+                    $query_obat = "SELECT * FROM obat";
+                    $db_obat = mysqli_query($mysqli, $query_obat);
+
+                    while ($obat = mysqli_fetch_assoc($db_obat)) {
+                    ?>
+                      <option value="<?= $obat['id'] ?>"><?= $obat['nama_obat'] ?> | <?= $obat['kemasan'] ?> | <?= $obat['harga'] ?></option>
+                    <?php
+                    }
+                    ?>
+                  </optgroup>
+                </select>
               </div>
 
 
-              <button type="submit" class="btn btn-primary">Update</button>
+              <button type="submit" class="btn btn-primary mt-3" name="submit">
+                <i class="fas fa-save"></i>
+                Save
+              </button>
+              <input type="reset" class="btn btn-danger mt-3" value="Cancel">
             </form>
           </div>
         </div>
@@ -128,6 +141,29 @@ echo '</pre>';
         $('#seg-modal').load('pages/editPoli.php?id=' + dataId, function() {
           $('#editModal').modal('show');
         });
+      });
+    });
+  </script>
+
+  <script>
+    $('#obat').on('change', function() {
+      // Ambil data yang dipilih dari elemen select
+      var selectedObat = $(this).val();
+
+      // Tampilkan data yang dipilih dalam input teks
+      if (selectedObat && selectedObat.length > 0) {
+        $('#selectedObat').val(selectedObat.join(', '));
+      } else {
+        $('#selectedObat').val('');
+      }
+
+      // Update nilai elemen input tersembunyi untuk menyimpan data yang dipilih
+      $('#selectedObatHidden').val(selectedObat.join(', '));
+    });
+    $(document).ready(function() {
+      $('#obat').select2({
+        placeholder: "Pilih Obat",
+        allowClear: true
       });
     });
   </script>

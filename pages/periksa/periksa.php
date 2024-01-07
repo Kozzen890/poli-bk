@@ -61,7 +61,23 @@ $periksas = mysqli_fetch_all($result, MYSQLI_ASSOC);
                   <td><?= $periksa["nama_pasien"];  ?></td>
                   <td><?= $periksa["keluhan"];  ?></td>
                   <td>
-                    <a href='home_periksapasien.php?id=<?= $periksa['id']; ?>' class='btn btn-primary'>Periksa</a>
+                    <?php
+                    if ($periksa['status_periksa'] == 0) {
+                      echo '
+                        <a href="./home_periksapasien.php?id=' . $periksa['id'] . '" class="btn btn-primary">
+                            <i class="fas fa-stethoscope"></i>
+                            Periksa
+                        </a>
+                      ';
+                    } else {
+                      echo '
+                        <a href="' . $BASE_DOKTER_PAGES . '?page=edit_periksa&id_daftar_poli=' . $periksa['id'] . '" class="btn btn-warning">
+                            <i class="fas fa-edit"></i>
+                            Edit
+                        </a>
+                      ';
+                    }
+                    ?>
                   </td>
                 </tbody>
                 <?php $nomor++; ?>
