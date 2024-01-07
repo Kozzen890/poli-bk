@@ -62,7 +62,7 @@
                       <td><?= $d['no_rm']; ?></td>
                       <td>
                         <button data-toggle="modal" data-target="#detailModal<?= $d['id'] ?>" class="btn btn-info btn-sm">
-                          <i class="fa fa-eye"></i> Detail Riwayat Periksa
+                          <i class="fa fa-eye"></i> Detail Riwayat <br>Periksa
                         </button>
                       </td>
                     </tr>
@@ -92,7 +92,7 @@ while ($d = $results->fetch_assoc()) {
                 pr.*,
                 d.nama AS 'nama_dokter',
                 dpo.keluhan AS 'keluhan',
-                GROUP_CONCAT(o.nama_obat SEPARATOR ', ') AS 'obat'
+                GROUP_CONCAT(o.nama_obat, ' | ', o.kemasan , ' | ', o.harga SEPARATOR ', ') AS 'obat'
                 FROM periksa pr
                 LEFT JOIN daftar_poli dpo ON (pr.id_daftar_poli = dpo.id)
                 LEFT JOIN jadwal_periksa jp ON (dpo.id_jadwal = jp.id)
