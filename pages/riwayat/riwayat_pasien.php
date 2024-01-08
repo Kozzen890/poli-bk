@@ -89,12 +89,13 @@ $results->data_seek(0);
 while ($d = $results->fetch_assoc()) {
   $no_detail = 1;
   $pasien_id = $d['id'];
+  $biaya_periksa = 150000;
   $data2 = $mysqli->query("SELECT 
                 p.nama AS 'nama_pasien',
                 pr.*,
                 d.nama AS 'nama_dokter',
                 dpo.keluhan AS 'keluhan',
-                GROUP_CONCAT(o.nama_obat SEPARATOR ', ') AS 'obat'
+                GROUP_CONCAT(CONCAT(o.nama_obat, ' | ', o.kemasan, ' | ', o.harga) SEPARATOR ', ') AS 'obat'
                 FROM periksa pr
                 LEFT JOIN daftar_poli dpo ON (pr.id_daftar_poli = dpo.id)
                 LEFT JOIN jadwal_periksa jp ON (dpo.id_jadwal = jp.id)
@@ -131,6 +132,7 @@ while ($d = $results->fetch_assoc()) {
                   <th scope="col">Keluhan</th>
                   <th scope="col">Catatan</th>
                   <th scope="col">Obat</th>
+                  <th scope="col">Biaya Periksa</th>
                   <th scope="col">Total Biaya</th>
                 </tr>
               </thead>
@@ -144,6 +146,7 @@ while ($d = $results->fetch_assoc()) {
                     <td><?= $res['keluhan']; ?></td>
                     <td><?= $res['catatan']; ?></td>
                     <td><?= $res['obat']; ?></td>
+                    <td><?= $biaya_periksa ?></td>
                     <td><?= $res['biaya_periksa']; ?></td>
                   </tr>
                 <?php endwhile ?>
