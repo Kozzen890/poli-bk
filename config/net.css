@@ -2,3 +2,10 @@ body {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
 }
+
+.hovered-card {
+  transition: 0.5s;
+}
+.hovered-card:hover {
+  transform: scale(1.1);
+}

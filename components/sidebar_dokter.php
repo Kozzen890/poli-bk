@@ -62,7 +62,7 @@ $nama = $_SESSION['nama']; // Ambil nama dari session
         <li class="nav-item">
           <a href="../dokter/home_periksa.php" class="nav-link">
             <i class="nav-icon fas fa-stethoscope"></i>
-            <p>Memeriksa <br>Pasien</p>
+            <p>Memeriksa <br> &nbsp &nbsp &nbsp &nbsp &nbspPasien</p>
             <span class="right badge badge-warning">Dokter</span>
           </a>
         </li>

@@ -34,7 +34,7 @@
     <section class="project section">
       <div class="row mt-2">
         <h2 class="font-weight-bold text-center mt-4">Selamat Datang di Poliklinik</h2>
-        <div class="col-sm-5 mx-auto mt-4">
+        <div class="col-sm-5 mx-auto mt-4 hovered-card">
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Login Sebagai Dokter</h5>
@@ -43,7 +43,7 @@
             </div>
           </div>
         </div>
-        <div class="col-sm-5 mx-auto mt-4">
+        <div class="col-sm-5 mx-auto mt-4 hovered-card">
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Login Sebagai Pasien</h5>
