@@ -101,7 +101,7 @@ CREATE TABLE `dokter` (
 
 LOCK TABLES `dokter` WRITE;
 /*!40000 ALTER TABLE `dokter` DISABLE KEYS */;
-INSERT INTO `dokter` VALUES (13,'Meliora','Semarang','08223627389',1),(14,'Gloria','Bangunharjo','271201',4),(17,'Gas','Tes','9992',5),(18,'Tim','Tembalang','222',4);
+INSERT INTO `dokter` VALUES (13,'WKWKWKW','Semarang','08223627389',1),(14,'LOL','JOGJA','271201',4),(17,'Gas','Tes','9992',5),(18,'Tim','Tembalang','222',4);
 /*!40000 ALTER TABLE `dokter` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -291,7 +291,7 @@ CREATE TABLE `user_roles` (
 
 LOCK TABLES `user_roles` WRITE;
 /*!40000 ALTER TABLE `user_roles` DISABLE KEYS */;
-INSERT INTO `user_roles` VALUES (5,1,'admin','123'),(14,3,'Kozzen','180302'),(15,2,'Meliora','08223627389'),(17,2,'Gloria','271201'),(20,3,'Tim','12345678'),(22,3,'Daniel','890'),(23,2,'Gas','999'),(25,2,'Tim','222');
+INSERT INTO `user_roles` VALUES (5,1,'admin','123'),(14,3,'Kozzen','180302'),(15,2,'WKWKWKW','08223627389'),(17,2,'LOL','123456'),(20,3,'Tim','12345678'),(22,3,'Daniel','890'),(23,2,'Gas','999'),(25,2,'Tim','222');
 /*!40000 ALTER TABLE `user_roles` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
